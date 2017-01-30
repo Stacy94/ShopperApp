@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Shopping List</title>
+    <script type="text/javascript" src="scripts/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="libs/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="scripts/script.js"></script>
+    <link rel="stylesheet" type="text/css" href="libs/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="styles/style.css" />
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-sm-offset-3 text-center">
+                 <h1>Your Shopping List</h1>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-sm-offset-3 well">
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newItemModal" onclick="itemIsNew=true">Add an Item</button>
+            </div>
+        </div>
+
+        <div id="listEmpty" class="row">
+            <div class="col-xs-12 col-sm-6 col-sm-offset-3 text-center alert alert-info">
+                Your shopping list is empty.
+            </div>
+        </div>
+
+        <div id="listItemsContainer" class="row">
+            <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Description</th>
+                            <th>Bought</th>
+                            <th>Action</th>
+
+                        </tr>
+                    </thead>
+                    <tbody id="tableItems"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: this will always go at the end of your HTML as possible. you should only need to change the id -->
+    <div class="modal fade" id="newItemModal" tabindex="-1" role="dialog" aria-labelledby="newItemModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="newItemModalLabel">List Item</h4>
+                </div>
+                <div class="modal-body">
+                    <div>
+                        <div class="form-group">
+                            <label for="name">
+                                Name
+                            </label>
+                            <input type="text" class="form-control" id="name" placeholder="Item Name"/>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="description">
+                                Description
+                            </label>
+                            <textarea class="form-control" id="description" placeholder="Item Description"></textarea>
+                        </div>
+
+                        <div class="form-group" id="boughtItem">
+                            <label for="bought">
+                                Bought
+                            </label>
+                            <select id="bought" class="form-control">
+                                <option value="0">No</option>
+                                <option value="1">Yes</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="saveItem()">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
