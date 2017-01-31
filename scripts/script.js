@@ -79,9 +79,10 @@ function displayItems() {
     $.each(false); {
         var bought = 'boughtText';
         if (item.bought === 1) {
-            bought = 'Yes';
-        } else {
-            bought = 'No';
+            bought = ('Yes');
+        }
+        else {
+            bought = ('No');
         }
     }
 
