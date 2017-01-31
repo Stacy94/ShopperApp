@@ -20,7 +20,6 @@ function getItems() {
        success: function (response) {
            items =response.data;
            console.log(items);
-
            displayItems();
        },
 
@@ -76,6 +75,16 @@ function displayItems() {
     else{
         $('#listEmpty').show();
     }
+
+    $.each(false); {
+        var bought = 'boughtText';
+        if (item.bought === 1) {
+            bought = 'Yes';
+        } else {
+            bought = 'No';
+        }
+    }
+
     //add some HTML to the container
     //remember, your items array contains objects that have name and description properties.
     //this is where item.name and item.description come from
@@ -83,7 +92,6 @@ function displayItems() {
         console.log(key + ' is: ', item);
         //adding rows to the display table. Note: You are first using html, then after the onclick function you're adding javascript and then back to html.
         $(container).append('<tr><td>' + item.name + '</td><td>' + item.description + '</td><td>' + boughtText + '</td><td>' + '<button class="btn btn-success" onclick="editItem(' + key + ')">Edit</button>' + ' <button class="btn btn-danger" onclick="deleteItem(' + key + ')">Delete item</button>' + '</td></tr>');
-    //TODO: fix bought from 1/0 to yes/no hint: use if else statement. create a separate var and then display that variable.
     });
 }
 
@@ -93,22 +101,9 @@ function editItem(index) {
     $('#description').val(items[index].description);
     //the modal is being reused.
     $('#newItemModal').modal('show');
-    currentItem=index;
+    currentItem = index;
     itemIsNew = false;
-
-    //my bought variable. I think I'm mixing up my code??? I don't fully understand why it's giving me errors?
-    var boughtText() {
-        if(item.bought === 1){
-            boughtText("Yes");
-        }
-        else{
-            boughtText("No");
-            }
-        }
-    }
-
 }
-
 
 function updateItem(){
     //update variables from form inputs
@@ -135,11 +130,11 @@ function updateItem(){
     });
 }
 
-function deleteItem(index){
+function deleteItem(index) {
     //all variables from form inputs are deleted
 
 
-    var url = baseUrl + '/' + items[index].id + '/?_method=DELETE' ;
+    var url = baseUrl + '/' + items[index].id + '/?_method=DELETE';
 
     $.ajax({
         url: url, //tell this function where to send the information
