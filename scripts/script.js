@@ -3,8 +3,6 @@ var items = [];
 var baseUrl = 'http://generalgeniusservices.co.za/api/items';
 var currentItem = 0;
 var itemIsNew = false;
-//my bought variable (why does ti say that it's an unused variable when I'm trying to make it a variable?)
-var boughtItem = 0;
 
 $(document).ready(function () {
     getItems();
@@ -84,7 +82,7 @@ function displayItems() {
     $.each(items, function (key, item){
         console.log(key + ' is: ', item);
         //adding rows to the display table. Note: You are first using html, then after the onclick function you're adding javascript and then back to html.
-        $(container).append('<tr><td>' + item.name + '</td><td>' + item.description + '</td><td>' + item.bought + '</td><td>' + '<button class="btn btn-success" onclick="editItem(' + key + ')">Edit</button>' + ' <button class="btn btn-danger" onclick="deleteItem(' + key + ')">Delete item</button>' + '</td></tr>');
+        $(container).append('<tr><td>' + item.name + '</td><td>' + item.description + '</td><td>' + boughtText + '</td><td>' + '<button class="btn btn-success" onclick="editItem(' + key + ')">Edit</button>' + ' <button class="btn btn-danger" onclick="deleteItem(' + key + ')">Delete item</button>' + '</td></tr>');
     //TODO: fix bought from 1/0 to yes/no hint: use if else statement. create a separate var and then display that variable.
     });
 }
@@ -99,13 +97,12 @@ function editItem(index) {
     itemIsNew = false;
 
     //my bought variable. I think I'm mixing up my code??? I don't fully understand why it's giving me errors?
-    var bought() {
-        if(bought.length === 0){
-            updateItem("No");
+    var boughtText() {
+        if(item.bought === 1){
+            boughtText("Yes");
         }
-        else {
-            (bought.length === 1){
-                updateItem("Yes");
+        else{
+            boughtText("No");
             }
         }
     }
