@@ -1,8 +1,10 @@
-//these variables are available in all the below functions
+//these variables are available in all the below functions, also known as the Global Scope
 var items = [];
 var baseUrl = 'http://generalgeniusservices.co.za/api/items';
 var currentItem = 0;
 var itemIsNew = false;
+//my bought variable (why does ti say that it's an unused variable when I'm trying to make it a variable?)
+var boughtItem = 0;
 
 $(document).ready(function () {
     getItems();
@@ -40,6 +42,7 @@ function saveItem() {
         updateItem();
     }
 }
+
 
 function postNewItem() {
     var item = {}; //create an object to contain our new item
@@ -94,7 +97,21 @@ function editItem(index) {
     $('#newItemModal').modal('show');
     currentItem=index;
     itemIsNew = false;
+
+    //my bought variable. I think I'm mixing up my code??? I don't fully understand why it's giving me errors?
+    var bought() {
+        if(bought.length === 0){
+            updateItem("No");
+        }
+        else {
+            (bought.length === 1){
+                updateItem("Yes");
+            }
+        }
+    }
+
 }
+
 
 function updateItem(){
     //update variables from form inputs
